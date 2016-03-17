@@ -23,7 +23,7 @@ Unload Me
 End Sub
 
 Private Sub CommandButton3_Click()
-If Frame2.Zoom > 381 Then 'le zoom est limitÈ ‡ 400 au max
+If Frame2.Zoom > 381 Then 'le zoom est limit√© √† 400 au max
 MsgBox ("Zomm maximum atteint")
 Else
 Frame2.Zoom = Frame2.Zoom + 20 'on zoom de 20 en 20
@@ -42,7 +42,7 @@ End Sub
 Private Sub CommandButton5_Click()
 Dim AppWrd As Object
 Set AppWrd = CreateObject("Word.Application")
-AppWrd.Documents.Open Filename:="U:\Pierrick\RÈtentionCashBack\Doc.docx"
+AppWrd.Documents.Open Filename:="U:\Pierrick\R√©tentionCashBack\Doc.docx"
 AppWrd.Visible = True
 End Sub
 
@@ -51,64 +51,72 @@ End Sub
 Private Sub CommandButton6_Click()
 If Image1.Tag = "Doc" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÈtentionCashBack\Doc1.jpg")
+    .Picture = LoadPicture("U:\Pierrick\R√©tentionCashBack\Doc1.jpg")
     .Tag = "Doc1"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
     End With
+    Label1.Caption = "Page 2/5"
 ElseIf Image1.Tag = "Doc1" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÈtentionCashBack\Doc2.jpg")
+    .Picture = LoadPicture("U:\Pierrick\R√©tentionCashBack\Doc2.jpg")
     .Tag = "Doc2"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
     End With
+    Label1.Caption = "Page 3/5"
 ElseIf Image1.Tag = "Doc2" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÈtentionCashBack\Doc3.jpg")
+    .Picture = LoadPicture("U:\Pierrick\R√©tentionCashBack\Doc3.jpg")
     .Tag = "Doc3"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
     End With
+    Label1.Caption = "Page 4/5"
 ElseIf Image1.Tag = "Doc3" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÈtentionCashBack\Doc4.jpg")
+    .Picture = LoadPicture("U:\Pierrick\R√©tentionCashBack\Doc4.jpg")
     .Tag = "Doc4"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
     End With
+    Label1.Caption = "Page 5/5"
 Else
 End If
 End Sub
 Private Sub CommandButton7_Click()
 If Image1.Tag = "Doc4" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÈtentionCashBack\Doc3.jpg")
+    .Picture = LoadPicture("U:\Pierrick\R√©tentionCashBack\Doc3.jpg")
     .Tag = "Doc3"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
     End With
+    Label1.Caption = "Page 4/5"
 ElseIf Image1.Tag = "Doc3" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÈtentionCashBack\Doc2.jpg")
+    .Picture = LoadPicture("U:\Pierrick\R√©tentionCashBack\Doc2.jpg")
     .Tag = "Doc2"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
     End With
+    Label1.Caption = "Page 3/5"
 ElseIf Image1.Tag = "Doc2" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÈtentionCashBack\Doc1.jpg")
+    .Picture = LoadPicture("U:\Pierrick\R√©tentionCashBack\Doc1.jpg")
     .Tag = "Doc1"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
     End With
+    Label1.Caption = "Page 2/5"
 ElseIf Image1.Tag = "Doc1" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÈtentionCashBack\Doc.jpg")
+    .Picture = LoadPicture("U:\Pierrick\R√©tentionCashBack\Doc.jpg")
     .Tag = "Doc"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
     End With
+    Label1.Caption = "Page 1/5"
 Else
 End If
 End Sub
@@ -123,9 +131,10 @@ With Frame2
     End With
 
     With Image1
-        .Picture = LoadPicture("U:\Pierrick\RÈtentionCashBack\Doc.jpg")
+        .Picture = LoadPicture("U:\Pierrick\R√©tentionCashBack\Doc.jpg")
         .Tag = "Doc"
         .BorderStyle = fmBorderStyleSingle
         .PictureSizeMode = fmPictureSizeModeZoom
     End With
+    Label1.Caption = "Page 1/5"
 End Sub
