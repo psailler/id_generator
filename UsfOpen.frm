@@ -19,8 +19,14 @@ MAIN.Show 0
 End Sub
 
 Private Sub CommandButton2_Click()
-UsfOpen.Hide
-OpenDoc.Show 0
+'Dim AppWrd As Object
+'Set AppWrd = CreateObject("Word.Application")
+'AppWrd.Documents.Open Filename:="\\uf96-001.cm-cic.fr\BCA_DPOI\02-SIT\Temporaire\Documentation_CashbackGenerator.docx"
+'AppWrd.Visible = True
+'AppActivate "word", 1
+'UsfOpen.Hide
+'OpenDoc.Show 0
+ActiveWorkbook.FollowHyperlink Address:="\\uf96-001.cm-cic.fr\BCA_DPOI\02-SIT\Temporaire\Documentation_Fonctionnelle_CashbackGenerator.pdf"
 End Sub
 
 Private Sub CommandButton3_Click()
