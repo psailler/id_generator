@@ -42,15 +42,15 @@ Next
 
 Worksheets("CashbackGenerator").Range("C2:C1048576").ClearContents
 For n = 2 To Sheets("CashbackGenerator").Range("A1048576").End(xlUp).Row
-    Set c = Sheets("ACC_CLIENT_PORTEUR").Columns(12).Find(Sheets("CashbackGenerator").Range("A" & n), LookIn:=xlValues, lookat:=xlWhole)
+    Set C = Sheets("ACC_CLIENT_PORTEUR").Columns(12).Find(Sheets("CashbackGenerator").Range("A" & n), LookIn:=xlValues, lookat:=xlWhole)
     Set d = Sheets("ACC_CLIENT_PORTEUR").Columns(13).Find(Sheets("CashbackGenerator").Range("A" & n), LookIn:=xlValues, lookat:=xlWhole)
     Set e = Sheets("CashbackGenerator").Columns(1).Find(Sheets("CashbackGenerator").Range("A" & n), LookIn:=xlValues, lookat:=xlWhole)
     
         If Sheets("CashbackGenerator").Range("C" & n).Value = "Introuvable" Then
     
-            If Not c Is Nothing Then
-                Sheets("CashbackGenerator").Range("C" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & c.Row)
-                Sheets("Feuil1").Range("A" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & c.Row) & ";" & Sheets("CashbackGenerator").Range("B" & e.Row) * 100 & ";" & DateSerial(Year(Date), Month(Date) + 4, 1) - 1 & " 00:00:00"
+            If Not C Is Nothing Then
+                Sheets("CashbackGenerator").Range("C" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & C.Row)
+                Sheets("Feuil1").Range("A" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & C.Row) & ";" & Sheets("CashbackGenerator").Range("B" & e.Row) * 100 & ";" & DateSerial(Year(Date), Month(Date) + 4, 1) - 1 & " 00:00:00"
             ElseIf Not d Is Nothing Then
                 Sheets("CashbackGenerator").Range("C" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & d.Row)
                 Sheets("Feuil1").Range("A" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & d.Row) & ";" & Sheets("CashbackGenerator").Range("B" & e.Row) * 100 & ";" & DateSerial(Year(Date), Month(Date) + 4, 1) - 1 & " 00:00:00"
@@ -61,9 +61,9 @@ For n = 2 To Sheets("CashbackGenerator").Range("A1048576").End(xlUp).Row
         
         ElseIf Sheets("CashbackGenerator").Range("C" & n).Value <> "Introuvable" Then
      
-            If Not c Is Nothing Then
-                Sheets("CashbackGenerator").Range("C" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & c.Row)
-                Sheets("Feuil1").Range("A" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & c.Row) & ";" & Sheets("CashbackGenerator").Range("B" & e.Row) * 100 & ";" & DateSerial(Year(Date), Month(Date) + 4, 1) - 1 & " 00:00:00"
+            If Not C Is Nothing Then
+                Sheets("CashbackGenerator").Range("C" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & C.Row)
+                Sheets("Feuil1").Range("A" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & C.Row) & ";" & Sheets("CashbackGenerator").Range("B" & e.Row) * 100 & ";" & DateSerial(Year(Date), Month(Date) + 4, 1) - 1 & " 00:00:00"
             ElseIf Not d Is Nothing Then
                 Sheets("CashbackGenerator").Range("C" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & d.Row)
                 Sheets("Feuil1").Range("A" & n) = Sheets("ACC_CLIENT_PORTEUR").Range("A" & d.Row) & ";" & Sheets("CashbackGenerator").Range("B" & e.Row) * 100 & ";" & DateSerial(Year(Date), Month(Date) + 4, 1) - 1 & " 00:00:00"

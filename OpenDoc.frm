@@ -23,7 +23,7 @@ Unload Me
 End Sub
 
 Private Sub CommandButton3_Click()
-If Frame2.Zoom > 381 Then 'le zoom est limitÃ© Ã  400 au max
+If Frame2.Zoom > 381 Then 'le zoom est limité à 400 au max
 MsgBox ("Zomm maximum atteint")
 Else
 Frame2.Zoom = Frame2.Zoom + 20 'on zoom de 20 en 20
@@ -42,7 +42,7 @@ End Sub
 Private Sub CommandButton5_Click()
 Dim AppWrd As Object
 Set AppWrd = CreateObject("Word.Application")
-AppWrd.Documents.Open Filename:="U:\Pierrick\RÃ©tentionCashBack\Doc.docx"
+AppWrd.Documents.Open Filename:="U:\Pierrick\RétentionCashBack\Doc.docx"
 AppWrd.Visible = True
 End Sub
 
@@ -51,7 +51,7 @@ End Sub
 Private Sub CommandButton6_Click()
 If Image1.Tag = "Doc" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÃ©tentionCashBack\Doc1.jpg")
+    .Picture = LoadPicture("U:\Pierrick\RétentionCashBack\Doc1.jpg")
     .Tag = "Doc1"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
@@ -59,7 +59,7 @@ If Image1.Tag = "Doc" Then
     Label1.Caption = "Page 2/5"
 ElseIf Image1.Tag = "Doc1" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÃ©tentionCashBack\Doc2.jpg")
+    .Picture = LoadPicture("U:\Pierrick\RétentionCashBack\Doc2.jpg")
     .Tag = "Doc2"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
@@ -67,7 +67,7 @@ ElseIf Image1.Tag = "Doc1" Then
     Label1.Caption = "Page 3/5"
 ElseIf Image1.Tag = "Doc2" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÃ©tentionCashBack\Doc3.jpg")
+    .Picture = LoadPicture("U:\Pierrick\RétentionCashBack\Doc3.jpg")
     .Tag = "Doc3"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
@@ -75,7 +75,7 @@ ElseIf Image1.Tag = "Doc2" Then
     Label1.Caption = "Page 4/5"
 ElseIf Image1.Tag = "Doc3" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÃ©tentionCashBack\Doc4.jpg")
+    .Picture = LoadPicture("U:\Pierrick\RétentionCashBack\Doc4.jpg")
     .Tag = "Doc4"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
@@ -87,7 +87,7 @@ End Sub
 Private Sub CommandButton7_Click()
 If Image1.Tag = "Doc4" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÃ©tentionCashBack\Doc3.jpg")
+    .Picture = LoadPicture("U:\Pierrick\RétentionCashBack\Doc3.jpg")
     .Tag = "Doc3"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
@@ -95,7 +95,7 @@ If Image1.Tag = "Doc4" Then
     Label1.Caption = "Page 4/5"
 ElseIf Image1.Tag = "Doc3" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÃ©tentionCashBack\Doc2.jpg")
+    .Picture = LoadPicture("U:\Pierrick\RétentionCashBack\Doc2.jpg")
     .Tag = "Doc2"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
@@ -103,7 +103,7 @@ ElseIf Image1.Tag = "Doc3" Then
     Label1.Caption = "Page 3/5"
 ElseIf Image1.Tag = "Doc2" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÃ©tentionCashBack\Doc1.jpg")
+    .Picture = LoadPicture("U:\Pierrick\RétentionCashBack\Doc1.jpg")
     .Tag = "Doc1"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
@@ -111,7 +111,7 @@ ElseIf Image1.Tag = "Doc2" Then
     Label1.Caption = "Page 2/5"
 ElseIf Image1.Tag = "Doc1" Then
     With Image1
-    .Picture = LoadPicture("U:\Pierrick\RÃ©tentionCashBack\Doc.jpg")
+    .Picture = LoadPicture("U:\Pierrick\RétentionCashBack\Doc.jpg")
     .Tag = "Doc"
     .BorderStyle = fmBorderStyleSingle
     .PictureSizeMode = fmPictureSizeModeZoom
@@ -120,6 +120,7 @@ ElseIf Image1.Tag = "Doc1" Then
 Else
 End If
 End Sub
+
 
 Private Sub UserForm_Initialize()
 With Frame2
@@ -131,10 +132,18 @@ With Frame2
     End With
 
     With Image1
-        .Picture = LoadPicture("U:\Pierrick\RÃ©tentionCashBack\Doc.jpg")
+        .Picture = LoadPicture("U:\Pierrick\RétentionCashBack\Doc.jpg")
         .Tag = "Doc"
         .BorderStyle = fmBorderStyleSingle
         .PictureSizeMode = fmPictureSizeModeZoom
     End With
-    Label1.Caption = "Page 1/5"
+Label1.Caption = "Page 1/5"
+End Sub
+
+Private Sub UserForm_Activate()
+trois_boutons Me
+End Sub
+
+Private Sub UserForm_Resize()
+maForm_Resize Me
 End Sub

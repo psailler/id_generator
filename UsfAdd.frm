@@ -16,7 +16,7 @@ Attribute VB_Exposed = False
 
 Private Sub CommandButton3_Click()
 Unload Me
-Main.Show 0
+MAIN.Show 0
 End Sub
 
 Private Sub UserForm_Activate()
@@ -33,23 +33,14 @@ Private Sub CommandButton1_Click()
 Dim L As Long
 
 If MsgBox("Etes-vous certain de vouloir enregistrer ce contact ?", vbYesNo, "Demande de confirmation") = vbYes Then
+    If TextBox1.BackColor = vbRed Or TextBox4.BackColor = vbRed Or TextBox6.BackColor = vbRed Or TextBox9.BackColor = vbRed Or TextBox10.BackColor = vbRed Or TextBox11.BackColor = vbRed Or TextBox12.BackColor = vbRed Then
+    MsgBox "Il y a un ou plusieurs champs non valides", vbCritical + vbOKOnly, "Erreur"
+    Exit Sub
+    End If
+Else
 L = Worksheets("ACC_CLIENT_PORTEUR").Range("A1048576").End(xlUp).Row + 1
 
-If TextBox1.BackColor = vbRed Then
-Exit Sub
-ElseIf TextBox4.BackColor = vbRed Then
-Exit Sub
-ElseIf TextBox6.BackColor = vbRed Then
-Exit Sub
-ElseIf TextBox9.BackColor = vbRed Then
-Exit Sub
-ElseIf TextBox10.BackColor = vbRed Then
-Exit Sub
-ElseIf TextBox11.BackColor = vbRed Then
-Exit Sub
-ElseIf TextBox12.BackColor = vbRed Then
-Exit Sub
-End If
+
 
 
 'ID_CDISCOUNT
@@ -99,6 +90,14 @@ Sheets("ACC_CLIENT_PORTEUR").Range("L" & L).Value = TextBox11
 
 'REF
 Sheets("ACC_CLIENT_PORTEUR").Range("M" & L).Value = TextBox12
+
+If OptionButton1.Value = True Then
+MsgBox OptionButton1.Caption & " " & TextBox2.Value & " " & "a bien été ajouté en base", vbInformation + vbOKOnly, "Ajout du client"
+ElseIf OptionButton2.Value = True Then
+MsgBox OptionButton2.Caption & " " & TextBox2.Value & " " & "a bien été ajoutée en base", vbInformation + vbOKOnly, "Ajout d'une cliente"
+ElseIf OptionButton3.Value = True Then
+MsgBox OptionButton3.Caption & " " & TextBox2.Value & " " & "a bien été ajoutée en base", vbInformation + vbOKOnly, "Ajout d'une cliente"
+End If
 
 End If
 
@@ -185,47 +184,38 @@ TextBox1.BackColor = vbWhite
 ElseIf TextBox1.TextLength = 11 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (11 caractères)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox1.BackColor = vbRed
-Exit Sub
 ElseIf TextBox1.TextLength = 10 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (10 caractères)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox1.BackColor = vbRed
-Exit Sub
 ElseIf TextBox1.TextLength = 9 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (9 caractères)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox1.BackColor = vbRed
-Exit Sub
 ElseIf TextBox1.TextLength = 8 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (8 caractères)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox10.BackColor = vbRed
-Exit Sub
 ElseIf TextBox1.TextLength = 7 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (7 caractères)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox1.BackColor = vbRed
-Exit Sub
 ElseIf TextBox1.TextLength = 6 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (6 caractères)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox1.BackColor = vbRed
-Exit Sub
 ElseIf TextBox1.TextLength = 5 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (5 caractères)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox1.BackColor = vbRed
-Exit Sub
 ElseIf TextBox1.TextLength = 4 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (4 caractères)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox1.BackColor = vbRed
-Exit Sub
 ElseIf TextBox1.TextLength = 3 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (3 caractères)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox1.BackColor = vbRed
-Exit Sub
 ElseIf TextBox1.TextLength = 2 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (2 caractères)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox1.BackColor = vbRed
-Exit Sub
 ElseIf TextBox1.TextLength = 1 Then
 MsgBox "L'identifiant que vous avez saisi n'est pas au bon format (1 caractère)" & vbNewLine & "Exemple : 000000001D3K ", vbOKOnly + vbCritical, "Format de l'identifiant"
 TextBox1.BackColor = vbRed
-Exit Sub
+ElseIf TextBox1.TextLength = 0 Then
+TextBox1.BackColor = vbWhite
 End If
 End Sub
 
@@ -287,6 +277,8 @@ TextBox4.BackColor = vbRed
 ElseIf TextBox4.TextLength = 1 Then
 MsgBox "Le format que vous avez saisi est incorrect (1 caractère)" & vbNewLine & "Exemple : 01/01/2016 ", vbOKOnly + vbCritical, "Format de la date"
 TextBox4.BackColor = vbRed
+ElseIf TextBox4.TextLength = 0 Then
+TextBox4.BackColor = vbWhite
 End If
 End Sub
 
@@ -322,6 +314,8 @@ TextBox6.BackColor = vbWhite
 ElseIf TextBox6.TextLength = 1 Then
 MsgBox "Le Code Postal que vous avez saisi est incorrect (1 caractère)" & vbNewLine & "Exemple : 33 - 33000 ", vbOKOnly + vbCritical, "Code Postal incorrect"
 TextBox6.BackColor = vbRed
+ElseIf TextBox6.TextLength = 0 Then
+TextBox6.BackColor = vbWhite
 End If
 End Sub
 
@@ -409,6 +403,8 @@ TextBox9.BackColor = vbRed
 ElseIf TextBox9.TextLength = 1 Then
 MsgBox "Le format que vous avez saisi est incorrect (1 caractère)" & vbNewLine & "Exemple : 146289551400028000000 ", vbOKOnly + vbCritical, "Format de du RIB"
 TextBox9.BackColor = vbRed
+ElseIf TextBox9.TextLength = 0 Then
+TextBox9.BackColor = vbWhite
 End If
 
 If TextBox9.Value <> "" Then
@@ -477,6 +473,8 @@ TextBox10.BackColor = vbRed
 ElseIf TextBox10.TextLength = 1 Then
 MsgBox "Le format que vous avez saisi est incorrect" & vbNewLine & "Exemple : 5399601010685240 ", vbOKOnly + vbCritical, "Format de la date"
 TextBox10.BackColor = vbRed
+ElseIf TextBox10.TextLength = 0 Then
+TextBox10.BackColor = vbWhite
 End If
 End Sub
 
@@ -530,6 +528,8 @@ TextBox11.BackColor = vbRed
 ElseIf TextBox11.TextLength = 1 Then
 MsgBox "Le format que vous avez saisi est incorrect (1 caractère)" & vbNewLine & "Exemple : 2000008007022 ", vbOKOnly + vbCritical, "Format du numéro de tiers"
 TextBox11.BackColor = vbRed
+ElseIf TextBox11.TextLength = 0 Then
+TextBox11.BackColor = vbWhite
 End If
 End Sub
 
@@ -577,6 +577,8 @@ TextBox12.BackColor = vbRed
 ElseIf TextBox12.TextLength = 1 Then
 MsgBox "Le format que vous avez saisi est incorrect (1 caractère)" & vbNewLine & "Exemple : 00028000000 ", vbOKOnly + vbCritical, "Format de référence tiers"
 TextBox12.BackColor = vbRed
+ElseIf TextBox12.TextLength = 0 Then
+TextBox12.BackColor = vbWhite
 End If
 End Sub
 
